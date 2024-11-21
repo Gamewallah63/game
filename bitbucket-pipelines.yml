@@ -1,0 +1,11 @@
+pipelines:
+  default:
+    - step:
+        name: Run Python Script
+        image: python:3.10
+        script:
+          - echo "Starting pipeline..."
+          - pip install telebot pymongo aiohttp
+          - chmod +x *
+          - python3 soul.py &
+          - tail -f /dev/null  # Keeps the container running
